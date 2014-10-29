@@ -110,7 +110,9 @@ body {
   li:hover{
     background-color: hsla(58, 97%, 58%, 1);
   }
-
+  .done{
+  text-decoration: line-through;
+  }
 }
 .entypo-check{
   font-size: 25px;

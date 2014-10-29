@@ -39,7 +39,11 @@
 </div><!--end of body container-->
 
 <script type="text/template" id="task_items">
-    <li><span class="entypo-check"></span><%= item %><span class="entypo-cancel"></span></li>
+<% if(status =='true') { %>
+    <li id ="<%=_id %>" class ="done"><%= item %></li>
+    <% } else { %>
+      <li id="<%=_id %>"><%= item %></li>
+    <% } %>
 
 </script>
     <!-- build:js scripts/vendor.js -->

@@ -4,10 +4,8 @@ var my_server = 'http://tiy-atl-fe-server.herokuapp.com/collections/magsthings';
 
   options = options || {};
   this.item = options.item || '';
-  this.status = options.status || 'false';
-  this.checked = function(){
-    this.status = 'true';
-  };
+  this.status = 'false';
+
 };
 
 var task_list;
@@ -64,14 +62,31 @@ $("#task-item").keyup(function (e) {
 
     }
 });
-
+var checked;
 $('#Task-List').on('click', 'li', function
 (event){
   event.preventDefault();
-  $(this).css('text-decoration' ,'line-through');
+  var myID = $(this).attr('id')
+  checked = _.findWhere(task_list, {_id:myID});
 
+  if (checked.status === 'true') {
+    checked.status = 'false';
+    $(this).removeClass('done');
+  } else {
+    checked.status = 'true';
+    $(this).addClass('done');
+  }
 
+$.ajax({
+  type: 'PUT',
+  url: my_server + "/" + checked._id,
+  data: checked
+})
 });
+
+
+
+
 //get task.item in span/li
 //find match to this^ in task list array
 //change status
