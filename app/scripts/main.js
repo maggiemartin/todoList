@@ -85,8 +85,23 @@ $.ajax({
 });
 
 
+$('#deleteAll').click( function(){
+
+  $('ul').empty();
+  //make ajax delete all objects in the array also//
+});
+$.getJSON(my_server).done(function (status_data){
 
 
+
+  var incomplete =_.where(status_data, {status: "false"});
+  var incomplete_total = incomplete.length;
+
+  var complete =_.where(status_data, {status: "true"});
+  var complete_total = complete.length;
+  //var incomplete = _.where(my_erver, {status : "false"});
+  $('.tally').html(''+incomplete_total + ' Incomplete' + <br> + '' +complete_total + ' Completed');
+});
 //get task.item in span/li
 //find match to this^ in task list array
 //change status

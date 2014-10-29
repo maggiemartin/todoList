@@ -46,7 +46,11 @@
     <% } else { %>
       <li id="<%=_id %>"><%= item %></li>
     <% } %>
+<button id="deleteItem" title="Delete this Item"><span class="entypo-cancel"></span></button>
+</script>
 
+<script type="text/template" id="count">
+ <%= incomplete_total %>
 </script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
