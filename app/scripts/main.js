@@ -7,7 +7,18 @@ var my_server = 'http://tiy-atl-fe-server.herokuapp.com/collections/magsthings';
   this.status = 'false';
 
 };
+var count_section = function(){
 
+  $.getJSON(my_server).done(function (status_data){
+    var incomplete =_.where(status_data, {status: "false"});
+    var incomplete_total = incomplete.length;
+    var complete =_.where(status_data, {status: "true"});
+    var complete_total = complete.length;
+    //var incomplete = _.where(my_erver, {status : "false"});
+    $('.tally').html(''+incomplete_total + ' Incomplete' + '<br>' +complete_total +' Completed');
+
+  });
+};
 var task_list;
 var task_template = $('#task_items').html();
 var rendered = _.template(task_template);
@@ -21,6 +32,7 @@ $.getJSON(my_server).done( function(data){
   })
 
 })
+
 var add_task = function(){
   var input = $('#task-item').val();
   if (input === '') {
@@ -43,6 +55,8 @@ var add_task = function(){
   $('#Task-List').append(rendered(data));
   $('#task-item').val('');
 });
+  count_section();
+
 
 };
 
@@ -82,6 +96,8 @@ $.ajax({
   url: my_server + "/" + checked._id,
   data: checked
 })
+
+count_section();
 });
 
 
@@ -90,17 +106,15 @@ $('#deleteAll').click( function(){
   $('ul').empty();
   //make ajax delete all objects in the array also//
 });
-$.getJSON(my_server).done(function (status_data){
 
-
-
+/*$.getJSON(my_server).done(function (status_data){
   var incomplete =_.where(status_data, {status: "false"});
   var incomplete_total = incomplete.length;
-
   var complete =_.where(status_data, {status: "true"});
   var complete_total = complete.length;
   //var incomplete = _.where(my_erver, {status : "false"});
-  $('.tally').html(''+incomplete_total + ' Incomplete' + <br> + '' +complete_total + ' Completed');
+  $('.tally').html(''+incomplete_total + ' Incomplete' + '<br>' +complete_total +' Completed');
+
 });
 //get task.item in span/li
 //find match to this^ in task list array
