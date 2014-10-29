@@ -28,15 +28,15 @@
       <h1> Tasks. </h1>
       <div id="console">
         <input type="text" id="task-item" placeholder="enter task here...">
-        <button id="btnNew"><span class="entypo-list-add "> </span></button>
-        <button id="deleteAll"><span class="fontawesome-trash"></span></button>
+        <button id="btnNew"><span class="entypo-list-add " title="Add New Item"> </span></button>
+        <button id="deleteAll" title="Clear List"><span class="fontawesome-trash"></span></button>
+
       </div>
       <ul id ="Task-List">
 
       </ul>
     </div><!--end of hero unit-->
 </div><!--end of body container-->
-
 
 <script type="text/template" id="task_items">
     <li><span class="entypo-check"></span><input type="checkbox" > <%= item %><span class="entypo-cancel"></span></li>
