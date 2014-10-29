@@ -1,16 +1,28 @@
+var my_server = 'http://tiy-atl-fe-server.herokuapp.com/collections/magsthings';
+
   var Task = function (options) {
 
   options = options || {};
   this.item = options.item || '';
-  this.status = options.status || false;
+  this.status = options.status || 'false';
   this.checked = function(){
-    this.status = true;
+    this.status = 'true';
   };
 };
 
-var task_list = [];
+var task_list;
 var task_template = $('#task_items').html();
 var rendered = _.template(task_template);
+
+//set up JSON server
+$.getJSON(my_server).done( function(data){
+  task_list = data;
+
+  _.each(task_list, function(item){
+    $('#Task_List').append(rendered(item))
+  })
+
+})
 var add_task = function(){
   var input = $('#task-item').val();
   if (input === '') {
@@ -21,9 +33,18 @@ var add_task = function(){
     status:$(this).status,
 
   });
-  $('#Task-List').append(rendered(task));
-  $('#task-item').val('');
 
+  $.ajax({
+    type: 'POST',
+    url: my_server,
+    data: task
+  }).done(function(data){
+
+  task_list.push(data);
+
+  $('#Task-List').append(rendered(data));
+  $('#task-item').val('');
+});
 
 };
 
@@ -47,8 +68,14 @@ $("#task-item").keyup(function (e) {
 $('#Task-List').on('click', 'li', function
 (event){
   event.preventDefault();
-  $('.entypo-check').css('display' ,'block');
+  $(this).css('text-decoration' ,'line-through');
+
+
 });
+//get task.item in span/li
+//find match to this^ in task list array
+//change status
+
 
 //list item will look like this
 //<li><input type="checkbox" /><span>Do this thing</span></li>
