@@ -31,7 +31,7 @@
         <button id="btnNew"><span class="entypo-list-add " title="Add New Item"> </span></button>
         <button id="deleteAll" title="Clear List"><span class="fontawesome-trash"></span></button>
         <div class="tally">
-          5 Done <br> 3 Incomplete
+
         </div>
       </div>
       <ul id ="Task-List">
@@ -46,12 +46,10 @@
     <% } else { %>
       <li id="<%=_id %>"><%= item %></li>
     <% } %>
-<button id="deleteItem" title="Delete this Item"><span class="entypo-cancel"></span></button>
+
 </script>
 
-<script type="text/template" id="count">
- <%= incomplete_total %>
-</script>
+
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>

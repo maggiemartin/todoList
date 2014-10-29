@@ -104,7 +104,20 @@ count_section();
 $('#deleteAll').click( function(){
 
   $('ul').empty();
-  //make ajax delete all objects in the array also//
+
+});
+/*$('ul').on('click', 'button', function(event){
+  var newID = $(this).attr('id')
+  var deleting = _.findWhere(task_list, {_id:newID});
+
+$.ajax({
+  type: 'DELETE',
+  url: my_server + "/" + deleting._id,
+  data: deleting
+})
+
+
+
 });
 
 /*$.getJSON(my_server).done(function (status_data){
@@ -114,6 +127,14 @@ $('#deleteAll').click( function(){
   var complete_total = complete.length;
   //var incomplete = _.where(my_erver, {status : "false"});
   $('.tally').html(''+incomplete_total + ' Incomplete' + '<br>' +complete_total +' Completed');
+
+$.ajax({
+  type: 'DELETE',
+  url: my_server + "/" + checked._id,
+  data: checked
+})
+
+
 
 });
 //get task.item in span/li
