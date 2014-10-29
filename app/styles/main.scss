@@ -46,12 +46,11 @@ body {
   position: absolute;
 }
 #btnNew{
-
   color: black;
   margin-top: 16px;
   height: 30px;
   width: 12%;
-  font-family: $taskfont;
+  font-family: helvetica;
   font-size: 15px;
   padding: 2px;
   margin-left: 65%;
@@ -68,17 +67,15 @@ body {
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-
   color: black;
   border-radius: 6px;
   padding: 60px;
-
   h1 {
     font-size: 70px;
     text-align: right;
     margin-bottom: -6px;
     padding-top: 10px;
-    font-family: $taskfont;
+    font-family: $typefont;
     line-height: 1;
     color: black;
     letter-spacing: -1px;
@@ -87,7 +84,6 @@ body {
     list-style-type: none;
     margin-top: 3px;
     width: 100%;
-
   }
   li{
     color: black;
@@ -98,7 +94,16 @@ body {
     border-bottom: 1px dashed hsla(212, 100%, 50%, 1);
     font-family: $typefont;
     text-align: justify;
-
+    position: relative;
+  }
+  li:hover{
+    background-color: hsla(58, 97%, 58%, 1);
   }
 
+}
+.entypo-check{
+  font-size: 25px;
+  color: red;
+  position: absolute;
+  display: none;
 }

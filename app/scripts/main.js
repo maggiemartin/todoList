@@ -44,7 +44,11 @@ $("#task-item").keyup(function (e) {
     }
 });
 
-
+$('#Task-List').on('click', 'li', function
+(event){
+  event.preventDefault();
+  $('.entypo-check').css('display' ,'block');
+});
 
 //list item will look like this
 //<li><input type="checkbox" /><span>Do this thing</span></li>
