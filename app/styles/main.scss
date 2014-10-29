@@ -1,32 +1,104 @@
  // Bourbon & Neat
 @import '../../bower_components/bourbon/dist/bourbon';
 @import '../../bower_components/neat/app/assets/stylesheets/neat';
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+
+$taskfont:'Fira Sans', sans-serif;
+$headfont:'EB Garamond', serif;
+$typefont:'Special Elite', cursive;
+// 'Covered By Your Grace', cursive;
+// 'Signika', sans-serif;
 
 // Custom Styles
 body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  //background-image: url("/images/backpack.jpeg");
+  background-color: black;
 }
+.body-container{
+  width: 80%;
+  height: 1000px;
+  position: relative;
+  background-image: url("/images/unnamed.jpg");
+  background-size: cover;
+  margin-top: -50px;
+}
+#console{
+  background-color: hsl(0,0,88);
+  height: 70px;
+  position: relative;
 
+}
+#task-item{
+  margin-top: 15px;
+  margin-left: 3%;
+  width: 60%;
+  border-radius: 3px;
+  padding: 3px;
+  font-family: $typefont;
+  font-size: 20px;
+  position: absolute;
+}
+#btnNew{
+
+  color: black;
+  margin-top: 16px;
+  height: 30px;
+  width: 12%;
+  font-family: $taskfont;
+  font-size: 15px;
+  padding: 2px;
+  margin-left: 65%;
+  position: absolute;
+  &:hover{
+    background-color: hsl(0,0,92);
+  }
+}
 .hero-unit {
-  margin: 50px auto 0 auto;
-  width: 600px;
+  margin-left: 5%;
+  margin-top: 15px;
+  width: 90%;
+  position: absolute;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
-  background-color: #eee;
+
+  color: black;
   border-radius: 6px;
   padding: 60px;
+
   h1 {
-    font-size: 60px;
+    font-size: 70px;
+    text-align: right;
+    margin-bottom: -6px;
+    padding-top: 10px;
+    font-family: $taskfont;
     line-height: 1;
+    color: black;
     letter-spacing: -1px;
   }
   ul{
     list-style-type: none;
+    margin-top: 3px;
+    width: 100%;
+
   }
   li{
-    color: red;
+    color: black;
+    border-radius: 2px;
+    margin-left: -40px;
+    opacity: .8;
+    background-color: hsla(52, 100%, 50%, 1);
+    border-bottom: 1px dashed hsla(212, 100%, 50%, 1);
+    font-family: $typefont;
+    text-align: justify;
+
   }
+
 }
